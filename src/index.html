@@ -11,36 +11,46 @@
 <header class="header">
     <div class="container">
         <div class="header__wrapper">
-            <div class="header__logo">
-                <a href="#" class="logo">
-                    <img src="images/logo.svg" alt="logo" class="logo__img">
-                </a>
-            </div>
+            <a href="#" class="header__logo">
+                <img src="images/logo.svg" alt="logo" class="logo">
+            </a>
             <div class="header__navigation">
-                <nav class="navigation">
-                    <ul class="navigation__list">
-                        <li class="navigation__item">
-                            <a href="" class="navigation__link">Local Movers</a>
-                        </li>
-                        <li class="navigation__item">
-                            <a href="" class="navigation__link">Long Distance</a>
-                        </li>
-                        <li class="navigation__item">
-                            <a href="" class="navigation__link">Storage</a>
-                        </li>
-                        <li class="navigation__item">
-                            <a href="" class="navigation__link">About Us</a>
-                        </li>
-                        <li class="navigation__item">
-                            <a href="" class="navigation__link">Service Area</a>
-                        </li>
-                    </ul>
-                </nav>
+                <div class="header__icon">
+                    <span></span>
+                </div>
+                <div class="header__menu">
+                    <div class="container">
+                        <div class="header__menu-wrapper">
+                            <nav class="navigation">
+                                <ul class="navigation__list">
+                                    <li class="navigation__item">
+                                        <a href="" class="navigation__link">Local Movers</a>
+                                    </li>
+                                    <li class="navigation__item">
+                                        <a href="" class="navigation__link">Long Distance</a>
+                                    </li>
+                                    <li class="navigation__item">
+                                        <a href="" class="navigation__link">Storage</a>
+                                    </li>
+                                    <li class="navigation__item">
+                                        <a href="" class="navigation__link">About Us</a>
+                                    </li>
+                                    <li class="navigation__item">
+                                        <a href="" class="navigation__link">Service Area</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                            <a href="" class="header__button header__button_show-mobile">Get a Quote</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="header__info">
-                <a href="tel:+8473784949" class="header__phone icon-phone">847-378-4949</a>
-                <a href="" class="header__button">Get a Quote</a>
-            </div>
+                <div class="header__info">
+                    <a href="tel:+8473784949" class="header__phone icon-phone">
+                        <span class="header__number">847-378-4949</span>
+                    </a>
+                    <a href="" class="header__button header__button_hidden-desktop">Get a Quote</a>
+                </div>
         </div>
     </div>
 </header>
@@ -73,65 +83,141 @@
                 From cross-country moves to anywhere in between, distance moving can be simple. We’ll help you get there
             </div>
             <div class="services__cards">
-                <div class="card">
+                <article class="card">
                     <div class="card__circle">
                         <img class="card__img" src="images/services/moving-truck.png" alt="circle">
                     </div>
-                    <div class="card__title">Residential Moving</div>
+                    <h3 class="card__title">Residential Moving</h3>
                     <div class="card__description">
                         Managing every detail, big or small, to help you have the smoothest move possible. We’ll help
                         you arrive home
                     </div>
-                </div>
-                <div class="card">
+                </article>
+                <article class="card">
                     <div class="card__circle">
                         <img class="card__img" src="images/services/boxes.png" alt="boxes">
                     </div>
-                    <div class="card__title">Commerical Moving</div>
+                    <h3 class="card__title">Commerical Moving</h3>
                     <div class="card__description">
                         Fast & efficient moving for businesses, while ensuring careful handling of equipment. We’ll
                         support your business venture
                     </div>
-                </div>
-                <div class="card">
+                </article>
+                <article class="card">
                     <div class="card__circle">
                         <img class="card__img" src="images/services/box-open.png" alt="box-open">
                     </div>
-                    <div class="card__title">Packing and Unpacking services</div>
+                    <h3 class="card__title">Packing and Unpacking services</h3>
                     <div class="card__description">
                         Careful packing, crating, wrapping, and unpacking so you won’t have to worry. We’ll organize the
                         moving parts
                     </div>
-                </div>
-                <div class="card">
+                </article>
+                <article class="card">
                     <div class="card__circle">
                         <img class="card__img" src="images/services/sofa.png" alt="circle">
                     </div>
-                    <div class="card__title">Furniture disassembly service</div>
+                    <h3 class="card__title">Furniture disassembly service</h3>
                     <div class="card__description">
                         Servicing your appliances, electronics, over-sized furniture, and more. We’ll care for your
                         valuables
                     </div>
-                </div>
-                <div class="card">
+                </article>
+                <article class="card">
                     <div class="card__circle">
                         <img class="card__img" src="images/services/map.png" alt="map">
                     </div>
-                    <div class="card__title">Long-Distance Movers</div>
+                    <h3 class="card__title">Long-Distance Movers</h3>
                     <div class="card__description">
                         From cross-country moves to anywhere in between, distance moving can be simple. We’ll help you
                         get there
                     </div>
-                </div>
-                <div class="card">
+                </article>
+                <article class="card">
                     <div class="card__circle">
                         <img class="card__img" src="images/services/warehouse.png" alt="warehouse">
                     </div>
-                    <div class="card__title">Storage Units</div>
+                    <h3 class="card__title">Storage Units</h3>
                     <div class="card__description">
                         Climate controlled facilities to meet any of your storage needs. We’ll keep your items safe
                     </div>
+                </article>
+            </div>
+            <div class="swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <article class="card">
+                            <div class="card__circle">
+                                <img class="card__img" src="images/services/moving-truck.png" alt="circle">
+                            </div>
+                            <h3 class="card__title">Residential Moving</h3>
+                            <div class="card__description">
+                                Managing every detail, big or small, to help you have the smoothest move possible. We’ll help
+                                you arrive home
+                            </div>
+                        </article>
+                    </div>
+                    <div class="swiper-slide">
+                        <article class="card">
+                            <div class="card__circle">
+                                <img class="card__img" src="images/services/moving-truck.png" alt="circle">
+                            </div>
+                            <h3 class="card__title">Residential Moving</h3>
+                            <div class="card__description">
+                                Managing every detail, big or small, to help you have the smoothest move possible. We’ll help
+                                you arrive home
+                            </div>
+                        </article>
+                    </div>
+                    <div class="swiper-slide">
+                        <article class="card">
+                            <div class="card__circle">
+                                <img class="card__img" src="images/services/box-open.png" alt="box-open">
+                            </div>
+                            <h3 class="card__title">Packing and Unpacking services</h3>
+                            <div class="card__description">
+                                Careful packing, crating, wrapping, and unpacking so you won’t have to worry. We’ll organize the
+                                moving parts
+                            </div>
+                        </article>
+                    </div>
+                    <div class="swiper-slide">
+                        <article class="card">
+                            <div class="card__circle">
+                                <img class="card__img" src="images/services/sofa.png" alt="circle">
+                            </div>
+                            <h3 class="card__title">Furniture disassembly service</h3>
+                            <div class="card__description">
+                                Servicing your appliances, electronics, over-sized furniture, and more. We’ll care for your
+                                valuables
+                            </div>
+                        </article>
+                    </div>
+                    <div class="swiper-slide">
+                        <article class="card">
+                            <div class="card__circle">
+                                <img class="card__img" src="images/services/map.png" alt="map">
+                            </div>
+                            <h3 class="card__title">Long-Distance Movers</h3>
+                            <div class="card__description">
+                                From cross-country moves to anywhere in between, distance moving can be simple. We’ll help you
+                                get there
+                            </div>
+                        </article>
+                    </div>
+                    <div class="swiper-slide">
+                        <article class="card">
+                            <div class="card__circle">
+                                <img class="card__img" src="images/services/warehouse.png" alt="warehouse">
+                            </div>
+                            <h3 class="card__title">Storage Units</h3>
+                            <div class="card__description">
+                                Climate controlled facilities to meet any of your storage needs. We’ll keep your items safe
+                            </div>
+                        </article>
+                    </div>
                 </div>
+                <div class="swiper-pagination"></div>
             </div>
         </div>
     </section>
@@ -150,8 +236,8 @@
                         mission is
                         to provide professional, affordable, and reliable moving
                     </p>
-                    <div class="location__info icon-location">3201 TOLLVIEW DRIVE ROLLING MEADOWS, IL 60008</div>
-                    <div class="location__info icon-location">4305 N. LINCOLN AVE CHICAGO, IL 60618</div>
+                    <address class="location__info icon-location">3201 TOLLVIEW DRIVE ROLLING MEADOWS, IL 60008</address>
+                    <address class="location__info icon-location">4305 N. LINCOLN AVE CHICAGO, IL 60618</address>
                     <a href="tel:+8473784949" class="location__info icon-phone">(847) 378-4949</a>
                 </div>
                 <div class="location__right">
@@ -165,7 +251,7 @@
                         </label>
                         <label class="form__label form__phone">
                             <span class="form__tag">Phone <span class="form__star">*</span></span>
-                            <input class="form__input" type="tel" id="phone" name="phone">
+                            <input placeholder="---_---_----" class="form__input" type="tel" id="phone" name="phone">
                         </label>
                         <label class="form__label form__email">
                             <span class="form__tag">Email <span class="form__star">*</span></span>
@@ -204,45 +290,95 @@
                 </div>
             </div>
             <div class="blog__bottom">
-                <div class="blog__card">
+                <article class="blog__card">
                     <div class="blog__img">
                         <img src="images/blog/hands.jpg" alt="hands" class="img">
                     </div>
                     <div class="blog__card-container">
                         <time class="blog__date" datetime="2021-12-16">December 16, 21</time>
-                        <div class="blog__title">How to move during COVID</div>
+                        <h3 class="blog__right-title">How to move during COVID</h3>
                         <div class="blog__description">
                             It depends on the size of your room It depends on the size of your room It depends on the size
                             of your room
                         </div>
                     </div>
-                </div>
-                <div class="blog__card">
+                </article>
+                <article class="blog__card">
                     <div class="blog__img">
                         <img src="images/blog/hands.jpg" alt="hands" class="img">
                     </div>
                     <div class="blog__card-container">
                         <time class="blog__date" datetime="2021-12-16">December 16, 21</time>
-                        <div class="blog__title">How to move during COVID</div>
+                        <h3 class="blog__right-title">How to move during COVID</h3>
                         <div class="blog__description">
                             It depends on the size of your room It depends on the size of your room It depends on the size
                             of your room
                         </div>
                     </div>
-                </div>
-                <div class="blog__card">
+                </article>
+                <article class="blog__card">
                     <div class="blog__img">
                         <img src="images/blog/hands.jpg" alt="hands" class="img">
                     </div>
                     <div class="blog__card-container">
                         <time class="blog__date" datetime="2021-12-16">December 16, 21</time>
-                        <div class="blog__title">How to move during COVID</div>
+                        <h3 class="blog__right-title">How to move during COVID</h3>
                         <div class="blog__description">
                             It depends on the size of your room It depends on the size of your room It depends on the size
                             of your room
                         </div>
                     </div>
+                </article>
+            </div>
+            <div class="swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <article class="blog__card">
+                            <div class="blog__img">
+                                <img src="images/blog/hands.jpg" alt="hands" class="img">
+                            </div>
+                            <div class="blog__card-container">
+                                <time class="blog__date" datetime="2021-12-16">December 16, 21</time>
+                                <h3 class="blog__right-title">How to move during COVID</h3>
+                                <div class="blog__description">
+                                    It depends on the size of your room It depends on the size of your room It depends on the size
+                                    of your room
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="swiper-slide">
+                        <article class="blog__card">
+                            <div class="blog__img">
+                                <img src="images/blog/hands.jpg" alt="hands" class="img">
+                            </div>
+                            <div class="blog__card-container">
+                                <time class="blog__date" datetime="2021-12-16">December 16, 21</time>
+                                <h3 class="blog__right-title">How to move during COVID</h3>
+                                <div class="blog__description">
+                                    It depends on the size of your room It depends on the size of your room It depends on the size
+                                    of your room
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="swiper-slide">
+                        <article class="blog__card">
+                            <div class="blog__img">
+                                <img src="images/blog/hands.jpg" alt="hands" class="img">
+                            </div>
+                            <div class="blog__card-container">
+                                <time class="blog__date" datetime="2021-12-16">December 16, 21</time>
+                                <h3 class="blog__right-title">How to move during COVID</h3>
+                                <div class="blog__description">
+                                    It depends on the size of your room It depends on the size of your room It depends on the size
+                                    of your room
+                                </div>
+                            </div>
+                        </article>
+                    </div>
                 </div>
+                <div class="swiper-pagination"></div>
             </div>
         </div>
     </section>
