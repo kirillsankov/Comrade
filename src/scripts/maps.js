@@ -1,5 +1,5 @@
 const loadGoogleMapsApi = require('load-google-maps-api')
-
+import img from '../images/marker.svg';
 
 export default class Maps {
     constructor(block) {
@@ -220,7 +220,7 @@ export default class Maps {
             {
                 position: this.pos,
                 map: myMap,
-                icon: "../images/marker.svg",
+                icon: img,
             }
         );
     }

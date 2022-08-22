@@ -37,6 +37,7 @@
   "dependencies": {
     "@enp/inputmask": "^5.0.11",
     "just-validate": "^3.8.1",
-    "load-google-maps-api": "^2.0.2"
+    "load-google-maps-api": "^2.0.2",
+    "swiper": "^8.3.2"
   }
 }
