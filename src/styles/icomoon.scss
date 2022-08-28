@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('../fonts/icomoon.eot?i7luc0');
-  src:  url('../fonts/icomoon.eot?i7luc0#iefix') format('embedded-opentype'),
-    url('../fonts/icomoon.ttf?i7luc0') format('truetype'),
-    url('../fonts/icomoon.woff?i7luc0') format('woff'),
-    url('../fonts/icomoon.svg?i7luc0#icomoon') format('svg');
+  src:  url('../fonts/icomoon.eot?4b3odt');
+  src:  url('../fonts/icomoon.eot?4b3odt#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?4b3odt') format('truetype'),
+    url('../fonts/icomoon.woff?4b3odt') format('woff'),
+    url('../fonts/icomoon.svg?4b3odt#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -25,6 +25,24 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-warehouse:before {
+  content: "\e902";
+}
+.icon-map:before {
+  content: "\e903";
+}
+.icon-sofa:before {
+  content: "\e904";
+}
+.icon-box-open:before {
+  content: "\e905";
+}
+.icon-boxes:before {
+  content: "\e906";
+}
+.icon-moving-truck:before {
+  content: "\e907";
+}
 .icon-location:before {
   content: "\e900";
 }

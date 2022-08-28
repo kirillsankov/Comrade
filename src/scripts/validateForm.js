@@ -3,6 +3,7 @@ import "@enp/inputmask/lib/inputmask";
 
 const SELECTORS = {
     tel: 'input[type="tel"]',
+    formErrors: 'form__error',
 }
 
 
@@ -24,7 +25,7 @@ export default class ValidateForm {
 
     JustValidate() {
         const validate = new JustValidate(this.block, {
-            errorLabelCssClass: 'form__error',
+            errorLabelCssClass: SELECTORS.formErrors,
             testingMode: true,
         });
         validate.addField("#name", [
