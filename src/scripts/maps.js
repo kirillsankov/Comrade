@@ -1,200 +1,24 @@
 const loadGoogleMapsApi = require('load-google-maps-api')
+const settings = require('../json/settingsMaps.json');
 import img from '../images/marker.svg';
+
+const SELECTORS = {
+    button: '.location__button',
+    header: '.header',
+    map: '.map',
+}
 
 export default class Maps {
     constructor(block) {
+        this.addressButton = document.querySelectorAll(SELECTORS.button);
+        this.settings = settings;
         this.pos = {
-            lat: 41.95989933542289,
-            lng: -87.68240670205059,
+            lat: +this.settings.pos.lat,
+            lng: +this.settings.pos.lng,
         };
-        this.mapStyle = [
-            {
-                "featureType": "all",
-                "elementType": "labels.text.fill",
-                "stylers": [
-                    {
-                        "saturation": 36
-                    },
-                    {
-                        "color": "#333333"
-                    },
-                    {
-                        "lightness": 40
-                    }
-                ]
-            },
-            {
-                "featureType": "all",
-                "elementType": "labels.text.stroke",
-                "stylers": [
-                    {
-                        "visibility": "on"
-                    },
-                    {
-                        "color": "#ffffff"
-                    },
-                    {
-                        "lightness": 16
-                    }
-                ]
-            },
-            {
-                "featureType": "all",
-                "elementType": "labels.icon",
-                "stylers": [
-                    {
-                        "visibility": "off"
-                    }
-                ]
-            },
-            {
-                "featureType": "administrative",
-                "elementType": "geometry.fill",
-                "stylers": [
-                    {
-                        "color": "#fefefe"
-                    },
-                    {
-                        "lightness": 20
-                    }
-                ]
-            },
-            {
-                "featureType": "administrative",
-                "elementType": "geometry.stroke",
-                "stylers": [
-                    {
-                        "color": "#fefefe"
-                    },
-                    {
-                        "lightness": 17
-                    },
-                    {
-                        "weight": 1.2
-                    }
-                ]
-            },
-            {
-                "featureType": "administrative.locality",
-                "elementType": "labels.icon",
-                "stylers": [
-                    {
-                        "color": "#bd081c"
-                    }
-                ]
-            },
-            {
-                "featureType": "landscape",
-                "elementType": "geometry",
-                "stylers": [
-                    {
-                        "color": "#f5f5f5"
-                    },
-                    {
-                        "lightness": 20
-                    }
-                ]
-            },
-            {
-                "featureType": "poi",
-                "elementType": "geometry",
-                "stylers": [
-                    {
-                        "color": "#f5f5f5"
-                    },
-                    {
-                        "lightness": 21
-                    }
-                ]
-            },
-            {
-                "featureType": "poi.park",
-                "elementType": "geometry",
-                "stylers": [
-                    {
-                        "color": "#dedede"
-                    },
-                    {
-                        "lightness": 21
-                    }
-                ]
-            },
-            {
-                "featureType": "road.highway",
-                "elementType": "geometry.fill",
-                "stylers": [
-                    {
-                        "color": "#ffffff"
-                    },
-                    {
-                        "lightness": 17
-                    }
-                ]
-            },
-            {
-                "featureType": "road.highway",
-                "elementType": "geometry.stroke",
-                "stylers": [
-                    {
-                        "color": "#ffffff"
-                    },
-                    {
-                        "lightness": 29
-                    },
-                    {
-                        "weight": 0.2
-                    }
-                ]
-            },
-            {
-                "featureType": "road.arterial",
-                "elementType": "geometry",
-                "stylers": [
-                    {
-                        "color": "#ffffff"
-                    },
-                    {
-                        "lightness": 18
-                    }
-                ]
-            },
-            {
-                "featureType": "road.local",
-                "elementType": "geometry",
-                "stylers": [
-                    {
-                        "color": "#ffffff"
-                    },
-                    {
-                        "lightness": 16
-                    }
-                ]
-            },
-            {
-                "featureType": "transit",
-                "elementType": "geometry",
-                "stylers": [
-                    {
-                        "color": "#f2f2f2"
-                    },
-                    {
-                        "lightness": 19
-                    }
-                ]
-            },
-            {
-                "featureType": "water",
-                "elementType": "geometry",
-                "stylers": [
-                    {
-                        "color": "#e9e9e9"
-                    },
-                    {
-                        "lightness": 17
-                    }
-                ]
-            }
-        ];
+        this.mapStyle = this.settings.style;
+        this.zoom = +this.settings.zoom;
+        this.key = this.settings.key;
         this.init(block);
     }
 
@@ -203,26 +27,59 @@ export default class Maps {
     }
 
     createMap(block) {
-        loadGoogleMapsApi({ key: "AIzaSyClhFHta8IRgr6R93w2-yzwClIpvDppS_s"}).then( (googleMaps) => {
+        loadGoogleMapsApi({ key: this.key}).then( (googleMaps) => {
             let myMap = new googleMaps.Map(block, {
                 center: this.pos,
-                zoom: 17,
+                zoom: this.zoom,
                 styles: this.mapStyle,
             })
             this.createMarker(myMap, googleMaps);
+            this.addListenerForButton(myMap);
         }).catch(function (error) {
             console.error(error)
         });
     }
 
     createMarker(myMap, googleMaps) {
-        let marker = new googleMaps.Marker(
-            {
-                position: this.pos,
-                map: myMap,
-                icon: img,
-            }
-        );
+        for(let address of this.addressButton) {
+            new googleMaps.Marker(
+                {
+                    position: {
+                        lat: +address.dataset.lat,
+                        lng: +address.dataset.lng,
+                    },
+                    map: myMap,
+                    icon: img,
+                }
+            );
+        }
+
+    }
+
+    addListenerForButton(myMap) {
+        const headerHeight = document.querySelector(SELECTORS.header).offsetHeight;
+        const map =  document.querySelector(SELECTORS.map)
+
+        for(let address of this.addressButton) {
+            address.addEventListener('click', (e) => {
+                e.preventDefault();
+                myMap.setCenter({
+                    lat: +address.dataset.lat,
+                    lng: +address.dataset.lng,
+                });
+                myMap.setZoom(17);
+                this.moveScroll(address, headerHeight, map);
+            });
+        }
+    }
+
+    moveScroll(address, headerHeight, map) {
+
+        const offsetPosition = map.getBoundingClientRect().top - headerHeight;
+        window.scrollBy({
+            top: offsetPosition,
+            behavior: 'smooth'
+        });
     }
 
 }

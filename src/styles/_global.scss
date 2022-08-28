@@ -552,7 +552,11 @@ body.lock {
 }
 
 .card {
+  display: block;
+
+  color: $mainFontColor;
   text-align: center;
+
   width: 429px;
 
   padding: 56px;
@@ -621,33 +625,31 @@ body.lock {
       width: 40px;
       height: 40px;
     }
-  }
 
-  &__img {
-    position: absolute;
+    &:before {
+      position: absolute;
 
-    width: 50px;
-    height: 50px;
+      font-size: 50px;
+      color: $mainPageColor;
 
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
 
-    @media (max-width: $l) {
-      width: 42px;
-      height: 42px;
-    }
+      @media (max-width: $l) {
+        font-size: 42px;
+      }
 
-    @media (max-width: $md) {
-      width: 34px;
-      height: 34px;
-    }
+      @media (max-width: $md) {
+        font-size: 34px;
+      }
 
-    @media (max-width: $sm) {
-      width: 24px;
-      height: 24px;
+      @media (max-width: $sm) {
+        font-size: 24px;
+      }
     }
   }
+
 
   &__title {
     font-size: 18px;
@@ -710,6 +712,8 @@ body.lock {
     font-style: normal;
     line-height: $mainLineHeight;
     color: $secondFontColor;
+
+    cursor: pointer;
 
     padding-left: 36px;
 
@@ -997,7 +1001,7 @@ body.lock {
   &__bottom {
     display: flex;
     justify-content: space-around;
-    column-gap: 16px;
+    gap: 16px;
     flex-wrap: wrap;
 
     @media (max-width: $l) {
@@ -1005,32 +1009,59 @@ body.lock {
     }
   }
 
-  &__img {
-    width: 429px;
+}
 
-    border-radius: 5px;
+.tip {
+  display: block;
+
+  max-width: 429px;
+
+  @media (max-width: $l) {
+    margin: 0 auto;
+  }
+
+  &:hover {
+    cursor: pointer;
+
+    box-shadow: 1px 1px 12px rgba(71, 71, 71, 0.06);
+  }
+
+  &:hover .tip__container .tip__title {
+    cursor: pointer;
+    color: $mainPageColor;
+  }
+
+  &__container {
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__content {
+    padding: 24px;
 
     @media (max-width: $l) {
-      width: 382px;
-    }
-
-    @media (max-width: $md) {
-      width: 335px;
-    }
-
-    @media (max-width: $sm) {
-      width: 288px;
+      padding: 16px;
     }
   }
 
+  &__img {
+    width: 100%;
+
+    border-radius: 5px;
+  }
+
   &__date {
+    color: $mainFontColor;
     font-size: 14px;
     line-height: $mainLineHeight;
 
     margin-bottom: 4px;
   }
 
-  &__right-title {
+  &__title {
     color: $secondFontColor;
     font-size: 18px;
     font-weight: 600;
@@ -1045,35 +1076,9 @@ body.lock {
   }
 
   &__description {
+    color: $mainFontColor;
     @media (max-width: $md) {
       display: none;
-    }
-  }
-
-  &__card-container {
-    padding: 24px;
-
-    @media (max-width: $l) {
-      padding: 16px;
-    }
-  }
-
-  &__card{
-    max-width: 429px;
-
-    @media (max-width: $l) {
-      margin: 0 auto;
-    }
-
-    &:hover {
-      cursor: pointer;
-
-      box-shadow: 1px 1px 12px rgba(71, 71, 71, 0.06);
-    }
-
-    &:hover .blog__card-container .blog__right-title {
-      cursor: pointer;
-      color: $mainPageColor;
     }
   }
 }

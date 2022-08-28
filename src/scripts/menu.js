@@ -10,24 +10,28 @@ export default class Menu {
         this.icon = this.block.querySelector(SELECTORS.icon);
         this.menuBurger = this.block.querySelector(SELECTORS.menu);
 
-        this.addClassToElements = this.addClassToElements.bind(this);
-
         this.init();
     }
 
     init() {
 
-        this.setListener(this.icon, this.addClassToElements);
+        this.icon.addEventListener('click', () => {
+            this.addPaddingBody();
+            this.toggleClassToElements();
+        });
     }
 
-    setListener(el, method) {
-        el.addEventListener('click', method);
-    }
-
-    addClassToElements() {
+    toggleClassToElements() {
         this.icon.classList.toggle('active');
         this.menuBurger.classList.toggle('active');
         document.body.classList.toggle("lock");
     }
 
+    addPaddingBody() {
+        document.body.style.paddingRight = this.getWidthScrollBar() + "px";
+    }
+
+    getWidthScrollBar() {
+        return window.innerWidth - document.body.clientWidth;
+    }
 }

@@ -12,26 +12,24 @@ export default class Slider {
     }
 
     init() {
-        if(this.block) {
-            new Swiper(this.block, {
-                slidesPerView: 1,
-                loop: true,
-                speed: 800,
-                spaceBetween: 16,
-                autoplay: {
-                  delay: 5000,
-                  disableOnInteraction: false,
+        new Swiper(this.block, {
+            slidesPerView: 1,
+            loop: true,
+            speed: 800,
+            spaceBetween: 16,
+            autoplay: {
+              delay: 5000,
+              disableOnInteraction: false,
+            },
+            pagination: {
+              el: ".swiper-pagination",
+                clickable: true,
+            },
+            breakpoints: {
+                991: {
+                    enabled: false,
                 },
-                pagination: {
-                  el: ".swiper-pagination",
-                    clickable: true,
-                },
-                breakpoints: {
-                    991: {
-                        enabled: false,
-                    },
-                }
-            })
-        }
+            }
+        })
     }
 }
